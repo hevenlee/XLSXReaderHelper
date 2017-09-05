@@ -110,7 +110,6 @@ public abstract class XLSXReaderHelper extends DefaultHandler {
             try {
                 int index = Integer.parseInt(content);
                 content = new XSSFRichTextString(sharedStringsTable.getEntryAt(index)).toString();
-                isString=false;
             } catch (Exception e) {
 
             }
@@ -153,7 +152,7 @@ public abstract class XLSXReaderHelper extends DefaultHandler {
      */
     @Override
     public void characters(char[] ch, int start, int length) throws SAXException {
-        content += new String(ch, start, length);
+        content = new String(ch, start, length);
     }
 
     /**
